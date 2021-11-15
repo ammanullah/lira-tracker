@@ -29,6 +29,50 @@
 	
 	<!-- Favicon  -->
     <link rel="icon" href="images/favi.png">
+    <script>
+    function unitChanged(id, error) {
+      if (document.getElementById(id).value != '') {
+        document.getElementById(error).innerHTML = '';
+        return;
+      } else {
+        document.getElementById(error).innerHTML = 'Field is Required..';
+      }
+    }
+    function getAverage() {
+
+      if (document.getElementById("units1").value == '') {
+        document.getElementById("error1").innerHTML = "Units required..";
+        return;
+      } else if (document.getElementById("Price1").value == '') {
+        document.getElementById("error2").innerHTML = "Price required..";
+        return;
+      } else if (document.getElementById("units2").value == '') {
+        document.getElementById("error3").innerHTML = "Units required..";
+        return;
+      } else if (document.getElementById("Price2").value == '') {
+        document.getElementById("error4").innerHTML = "Price required..";
+        return;
+      }
+
+      var unit1 = document.getElementById("units1").value;
+      var price1 = document.getElementById("Price1").value;
+      var unit2 = document.getElementById("units2").value;
+      var price2 = document.getElementById("Price2").value;
+
+      var res1 = (unit1 * price1) + (unit2 * price2);
+      var res2 = +unit1 + +unit2;
+      var result = res1 / res2;
+      document.getElementById("result").innerHTML = "Total units &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<bold>"
+        + res2 + "</bold><br/><br/>Average Price &nbsp;&nbsp;&nbsp;<bold>" + result + "</bold>";
+    }
+    function clearFields() {
+      document.getElementById("units1").value = '';
+      document.getElementById("Price1").value = '';
+      document.getElementById("units2").value = '';
+      document.getElementById("Price2").value = '';
+      document.getElementById("result").innerHTML = '';
+    }
+  </script>
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -99,6 +143,44 @@
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
+    
+    <!-- Contact -->
+    <div id="contact" class="form-1 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact details</h2>
+                    <p class="p-heading">For any queries please don't hesitate to get in touch with us. The fastest way is to send us your message using the form below</p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm" action="https://airform.io/ammanullahbhatti12@gmail.com" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Project details</label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">Submit</button>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form-1 -->  
+    <!-- end of contact -->
 
     <!-- Footer -->
     <div class="footer bg-gray">
